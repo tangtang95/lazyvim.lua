@@ -9,13 +9,16 @@ return {
         },
       },
     },
+    keys = {
+      { "S", mode = { "x" }, false },
+    },
   },
   {
     "kylechui/nvim-surround",
     version = "2.x",
     event = "VeryLazy",
     config = function()
-      require("nvim-surround").setup({})
+      require("nvim-surround").setup()
     end,
   },
 }
