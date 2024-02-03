@@ -1,4 +1,5 @@
 return {
+  -- TODO: improve lazy load of nvim-tree to save about 20 ms when not loading a file tree 
   {
     "nvim-tree/nvim-tree.lua",
     version = "*",
