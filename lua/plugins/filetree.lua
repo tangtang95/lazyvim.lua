@@ -17,8 +17,7 @@ return {
           ["<leader>e"] = "<Nop>",
           ["`"] = false,
           ["~"] = false,
-          ["<C-k>"] = "actions.cd",
-          ["<C-w>"] = "actions.tcd",
+          ["<C-i>"] = "actions.cd",
         },
         view_options = {
           show_hidden = true,
