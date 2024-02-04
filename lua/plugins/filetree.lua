@@ -12,6 +12,7 @@ return {
     },
     config = function()
       require("oil").setup({
+        delete_to_trash = true,
         keymaps = {
           ["<leader>e"] = "<Nop>",
           ["`"] = false,
