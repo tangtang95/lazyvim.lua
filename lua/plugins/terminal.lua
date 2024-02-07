@@ -19,7 +19,7 @@ return {
             end
           end)
         end,
-        desc = "Open new terminal shell",
+        desc = "Open new terminal shell (cwd)",
       },
       {
         "<leader>tv",
@@ -28,7 +28,7 @@ return {
             cwd = vim.loop.cwd(),
           })
         end,
-        desc = "Split vertically new terminal shell",
+        desc = "Split vertically new terminal shell (cwd)",
       },
       {
         "<leader>ts",
@@ -37,7 +37,7 @@ return {
             cwd = vim.loop.cwd(),
           })
         end,
-        desc = "Split horizontally new terminal shell",
+        desc = "Split horizontally new terminal shell (cwd)",
       },
     },
   },
