@@ -12,7 +12,8 @@ vim.keymap.del("n", "<leader>qq")
 -- Remove terminal related keymaps
 vim.keymap.del("n", "<leader>ft")
 vim.keymap.del("n", "<leader>fT")
-vim.keymap.del("n", "<c-/>")
+vim.keymap.del("n", "<C-/>")
+vim.keymap.del("n", "<C-_>")
 
 -- Remove tab related keymaps
 vim.keymap.del("n", "<leader><tab>l")
