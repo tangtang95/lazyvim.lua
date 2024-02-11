@@ -26,9 +26,8 @@ return {
       local cmp = require("cmp")
 
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
-        -- This <c-_> stands for my CTRL+7, but this mapping is for CTRL+Space.
-        -- Make sure to map CTRL+Space to CTRL+7 in PowerToys or similar key mapping tool
-        ["<c-_>"] = cmp.mapping.complete(),
+        -- TODO: fix back to CTRL+Space once it works
+        ["<c-c>"] = cmp.mapping.complete(),
       })
     end,
   },
@@ -36,11 +35,12 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       incremental_selection = {
-        -- This <c-_> stands for my CTRL+7, but this mapping is for CTRL+Space.
-        -- Make sure to map CTRL+Space to CTRL+7 in PowerToys or similar key mapping tool
+        -- TODO: fix back to CTRL+Space once it works
         keymaps = {
-          init_selection = "<C-_>",
-          node_incremental = "<C-_>",
+          init_selection = "<C-k>",
+          node_incremental = "<C-k>",
+          scope_incremental = false,
+          node_decremental = "<C-j>",
         },
       },
     },
