@@ -5,9 +5,9 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     keys = {
       {
-        "<leader>e",
+        "-",
         "<CMD>Oil<CR>",
-        desc = "Open Oil Explorer",
+        desc = "Open parent directory",
       },
     },
     config = function()
