@@ -21,9 +21,32 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     opts = function(_, opts)
-      -- Replace first element of C block section by making sure that it is shown also when Lazy root is equal to cwd
-      ---@diagnostic disable-next-line: assign-type-mismatch
-      opts.sections.lualine_c[1] = Util.lualine.root_dir({ cwd = true })
+      local root_dir = function()
+        local function get()
+          local root = Util.root.get({ normalize = true })
+          local name = vim.fs.basename(root)
+          local path = string.gsub(vim.fn.expand("%:p"), '\\', '/') --[[@as string]]
+
+          if path:find(root, 1, true) then
+            return name
+          else
+            return false
+          end
+        end
+
+        return {
+          function()
+            return "󱉭  " .. get()
+          end,
+          cond = function()
+            return type(get()) == "string"
+          end,
+          color = Util.ui.fg("Special"),
+        }
+      end
+
+      -- Show LazyRoot dir only when root dir is parent dir of buffer path
+      opts.sections.lualine_c[1] = root_dir()
     end,
   },
 }
