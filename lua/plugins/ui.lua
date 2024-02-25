@@ -27,7 +27,7 @@ return {
           local name = vim.fs.basename(root)
           local path = string.gsub(vim.fn.expand("%:p"), '\\', '/') --[[@as string]]
 
-          if path:find(root, 1, true) then
+          if path:find(root:gsub("^[a-zA-Z]:", ""), 1, true) then
             return name
           else
             return false
