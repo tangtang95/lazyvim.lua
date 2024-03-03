@@ -10,19 +10,16 @@ return {
         desc = "Open parent directory",
       },
     },
-    config = function()
-      require("oil").setup({
-        delete_to_trash = true,
-        keymaps = {
-          ["<leader>e"] = "<Nop>",
-          ["`"] = false,
-          ["~"] = false,
-          ["<C-e>"] = "actions.cd",
-        },
-        view_options = {
-          show_hidden = true,
-        },
-      })
-    end,
+    opts = {
+      delete_to_trash = true,
+      keymaps = {
+        ["`"] = false,
+        ["~"] = false,
+        ["<C-e>"] = "actions.cd",
+      },
+      view_options = {
+        show_hidden = true,
+      },
+    },
   },
 }
