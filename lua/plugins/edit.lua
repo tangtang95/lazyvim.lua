@@ -15,7 +15,6 @@ return {
   },
   {
     "kylechui/nvim-surround",
-    version = "2.x",
     event = "VeryLazy",
     config = true,
   },
@@ -42,6 +41,15 @@ return {
           scope_incremental = false,
           node_decremental = "<C-j>",
         },
+      },
+    },
+  },
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    opts = {
+      defaults = {
+        ["<leader>gl"] = { name = "+links" },
       },
     },
   },
