@@ -36,25 +36,4 @@ return {
       },
     },
   },
-  {
-    "NeogitOrg/neogit",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "sindrets/diffview.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
-    config = true,
-    event = "VeryLazy",
-    keys = {
-      {
-        "<leader>gn",
-        function()
-          local root = Util.root.get({ normalize = true })
-          require("neogit").open({ cwd = root })
-        end,
-        desc = "Neogit (root dir)",
-      },
-      { "<leader>gN", "<cmd>Neogit<CR>", desc = "Neogit (cwd)"}
-    },
-  },
 }
