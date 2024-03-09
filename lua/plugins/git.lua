@@ -1,11 +1,60 @@
-local ssh_private_gitlab_domain = vim.env.SSH_PRIVATE_GITLAB_DOMAIN
-local https_private_gitlab_domain = vim.env.HTTPS_PRIVATE_GITLAB_DOMAIN
-if ssh_private_gitlab_domain ~= nil and https_private_gitlab_domain ~= nil then
-  vim.g.fugitive_gitlab_domains = { [ssh_private_gitlab_domain] = https_private_gitlab_domain }
-end
+local Util = require("lazyvim.util")
 
 return {
   { "tpope/vim-fugitive", event = "VeryLazy" },
-  { "tpope/vim-rhubarb", event = "VeryLazy" },
-  { "shumphrey/fugitive-gitlab.vim", event = "VeryLazy" },
+  {
+    "linrongbin16/gitlinker.nvim",
+    cmd = "GitLink",
+    config = function()
+      require("gitlinker").setup({
+        router = {
+          repo = {
+            ["^github%.com"] = "https://github.com/" .. "{_A.ORG}/" .. "{_A.REPO}",
+          },
+        },
+      })
+    end,
+    keys = {
+      -- Quicker Shortcut
+      { "<leader>go", "<cmd>GitLink! repo<CR>", mode = { "n", "v" }, desc = "GitLink: open git browse repo link" },
+
+      { "<leader>gll", "<cmd>GitLink<CR>", mode = { "n", "v" }, desc = "GitLink: yank git browse link" },
+      { "<leader>glL", "<cmd>GitLink!<CR>", mode = { "n", "v" }, desc = "GitLink: open git browse link" },
+      { "<leader>glb", "<cmd>GitLink blame<CR>", mode = { "n", "v" }, desc = "GitLink: yank git blame link" },
+      { "<leader>glB", "<cmd>GitLink! blame<CR>", mode = { "n", "v" }, desc = "GitLink: open git blame link" },
+      {
+        "<leader>gld",
+        "<cmd>GitLink default_branch<CR>",
+        mode = { "n", "v" },
+        desc = "GitLink: yank git default branch link",
+      },
+      {
+        "<leader>glD",
+        "<cmd>GitLink! default_branch<CR>",
+        mode = { "n", "v" },
+        desc = "GitLink: open git default branch link",
+      },
+    },
+  },
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    config = true,
+    event = "VeryLazy",
+    keys = {
+      {
+        "<leader>gn",
+        function()
+          local root = Util.root.get({ normalize = true })
+          require("neogit").open({ cwd = root })
+        end,
+        desc = "Neogit (root dir)",
+      },
+      { "<leader>gN", "<cmd>Neogit<CR>", desc = "Neogit (cwd)"}
+    },
+  },
 }
