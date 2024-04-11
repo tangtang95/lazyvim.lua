@@ -1,5 +1,3 @@
-local Util = require("lazyvim.util")
-
 return {
   { "tpope/vim-fugitive", event = "VeryLazy" },
   {
