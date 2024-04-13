@@ -36,7 +36,7 @@ return {
 
         return {
           function()
-            return "󱉭  " .. get()
+            return " " .. get()
           end,
           cond = function()
             return type(get()) == "string"
