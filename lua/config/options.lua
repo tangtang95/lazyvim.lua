@@ -14,7 +14,14 @@ vim.g.autoformat = false
 vim.opt.relativenumber = false
 
 -- shell
-vim.opt.shell = "nu.exe"
+if vim.fn.executable('nu.exe') == 1 then
+  vim.opt.shell = 'nu'
+  vim.opt.shellcmdflag = '-c'
+  vim.opt.shellredir = '2>&1| save --raw %s'
+  vim.opt.shellpipe = '2>&1| save --raw %s'
+  vim.opt.shellquote = ""
+  vim.opt.shellxquote = ""
+end
 
 if vim.fn.has("wsl") == 1 then
 
