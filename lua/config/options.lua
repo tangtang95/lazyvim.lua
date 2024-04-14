@@ -13,6 +13,9 @@ vim.g.loaded_perl_provider = 0
 vim.g.autoformat = false
 vim.opt.relativenumber = false
 
+-- shell
+vim.opt.shell = "nu.exe"
+
 if vim.fn.has("wsl") == 1 then
 
   if vim.fn.executable("wl-copy") == 0 then
