@@ -6,6 +6,10 @@ return {
       -- NOTE: additional parser
       { "nushell/tree-sitter-nu" },
     },
-    build = ":TSUpdate",
+    opts = function(_, opts)
+      if type(opts.ensure_installed) == "table" then
+        vim.list_extend(opts.ensure_installed, { "nu" })
+      end
+    end,
   },
 }
