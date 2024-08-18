@@ -11,6 +11,7 @@ vim.g.loaded_perl_provider = 0
 
 --- preferences
 vim.g.autoformat = false
+vim.g.zig_fmt_autosave = false
 vim.opt.relativenumber = false
 
 -- shell

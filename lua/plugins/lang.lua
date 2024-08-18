@@ -24,6 +24,7 @@ return {
     opts = {
       servers = {
         nil_ls = {},
+        zls = {},
       },
     },
   },
