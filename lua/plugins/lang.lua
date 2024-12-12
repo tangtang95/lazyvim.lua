@@ -25,16 +25,31 @@ return {
       servers = {
         nil_ls = {},
         zls = {},
+        gopls = {
+          settings = {
+            gopls = {
+              hints = {
+                assignVariableTypes = false,
+                compositeLiteralFields = false,
+                compositeLiteralTypes = false,
+                constantValues = false,
+                functionTypeParameters = false,
+                parameterNames = false,
+                rangeVariableTypes = false,
+              },
+            },
+          },
+        },
       },
     },
   },
-{
-  "stevearc/conform.nvim",
-  optional = true,
-  opts = {
-    formatters_by_ft = {
-      nix = { "nixpkgs-fmt", "alejandra" },
+  {
+    "stevearc/conform.nvim",
+    optional = true,
+    opts = {
+      formatters_by_ft = {
+        nix = { "nixpkgs-fmt", "alejandra" },
+      },
     },
   },
-}
 }
