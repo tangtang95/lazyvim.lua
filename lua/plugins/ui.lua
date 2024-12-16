@@ -1,4 +1,5 @@
 local Util = require("lazyvim.util")
+local Snacks = require("snacks")
 
 return {
   {
@@ -25,7 +26,7 @@ return {
         local function get()
           local root = Util.root.get({ normalize = true })
           local name = vim.fs.basename(root)
-          local path = string.gsub(vim.fn.expand("%:p"), '\\', '/') --[[@as string]]
+          local path = string.gsub(vim.fn.expand("%:p"), "\\", "/") --[[@as string]]
 
           if path:find(root:gsub("^[a-zA-Z]:", ""), 1, true) then
             return name
@@ -41,7 +42,9 @@ return {
           cond = function()
             return type(get()) == "string"
           end,
-          color = Util.ui.fg("Special"),
+          color = {
+            fg = Snacks.util.color("Special"),
+          },
         }
       end
 

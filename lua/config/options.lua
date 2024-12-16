@@ -13,6 +13,7 @@ vim.g.loaded_perl_provider = 0
 vim.g.autoformat = false
 vim.g.zig_fmt_autosave = false
 vim.opt.relativenumber = false
+vim.g.snacks_animate = false
 
 -- shell
 if vim.fn.executable('nu.exe') == 1 then
