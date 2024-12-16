@@ -40,7 +40,7 @@ if vim.fn.has("wsl") == 1 then
         ["+"] = (function()
           return vim.fn.systemlist('wl-paste --no-newline|tr -d \'\\r\'', {''}, 1) -- '1' keeps empty lines
         end),
-        ["*"] = (function() 
+        ["*"] = (function()
           return vim.fn.systemlist('wl-paste --primary --no-newline|tr-d \'\\r\'', {''}, 1)
         end),
       },

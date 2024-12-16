@@ -3,23 +3,6 @@ local Snacks = require("snacks")
 
 return {
   {
-    "nvimdev/dashboard-nvim",
-    optional = true,
-    opts = function(_, opts)
-      local projects = {
-        action = "Telescope workspaces",
-        desc = " Projects",
-        icon = " ",
-        key = "p",
-      }
-
-      projects.desc = projects.desc .. string.rep(" ", 43 - #projects.desc)
-      projects.key_format = "  %s"
-
-      table.insert(opts.config.center, 3, projects)
-    end,
-  },
-  {
     "nvim-lualine/lualine.nvim",
     opts = function(_, opts)
       local root_dir = function()
