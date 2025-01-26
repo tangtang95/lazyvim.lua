@@ -2,25 +2,19 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
+      inlay_hints = { enabled = false },
       servers = {
         nil_ls = {},
-        zls = {},
-        gopls = {
+        zls = {
           settings = {
-            gopls = {
-              hints = {
-                assignVariableTypes = false,
-                compositeLiteralFields = false,
-                compositeLiteralTypes = false,
-                constantValues = false,
-                functionTypeParameters = false,
-                parameterNames = false,
-                rangeVariableTypes = false,
-              },
+            zls = {
+              enable_build_on_save = true,
+              build_on_save_step = "check",
             },
           },
         },
+        gopls = {},
       },
     },
-  }
+  },
 }
