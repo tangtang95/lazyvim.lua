@@ -4,7 +4,7 @@ return {
     opts = {
       inlay_hints = { enabled = false },
       servers = {
-        nil_ls = {},
+        nixd = {},
         zls = {
           settings = {
             zls = {
