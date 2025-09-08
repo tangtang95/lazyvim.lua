@@ -1,8 +1,8 @@
 return {
-  -- nix language
+  -- nix, java language
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = { ensure_installed = { "nix" } },
+    opts = { ensure_installed = { "nix", "java" } },
   },
   {
     "stevearc/conform.nvim",
