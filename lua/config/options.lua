@@ -14,6 +14,7 @@ vim.g.autoformat = false
 vim.g.zig_fmt_autosave = false
 vim.opt.relativenumber = false
 vim.g.snacks_animate = false
+vim.g.lazyvim_picker = "telescope"
 vim.g.rustaceanvim = {
   server = {
     default_settings = {
