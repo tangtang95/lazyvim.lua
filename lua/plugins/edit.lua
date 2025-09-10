@@ -33,6 +33,11 @@ return {
             ["<c-l>"] = actions.results_scrolling_right,
           },
         },
+        path_display = {
+          filename_first = {
+            reverse_directories = false,
+          },
+        },
       })
     end,
   },
