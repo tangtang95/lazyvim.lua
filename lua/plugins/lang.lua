@@ -19,13 +19,6 @@ return {
       inlay_hints = { enabled = false },
       servers = {
         nixd = {},
-        zls = {
-          settings = {
-            zls = {
-              enable_build_on_save = true,
-            },
-          },
-        },
         gopls = {},
         marksman = {},
       },
