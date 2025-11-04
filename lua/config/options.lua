@@ -14,10 +14,25 @@ vim.g.autoformat = false
 vim.g.zig_fmt_autosave = false
 vim.opt.relativenumber = false
 vim.g.snacks_animate = false
+
+--- rust
+local rust_check_command = {};
+if os.getenv("USE_XWIN_X86") == "true" then
+  rust_check_command = {
+    overrideCommand = {
+      "cargo",
+      "xwin",
+      "check",
+      "--xwin-arch=x86",
+      "--message-format=json",
+    }
+  };
+end
 vim.g.rustaceanvim = {
   server = {
     default_settings = {
       ['rust-analyzer'] = {
+        check = rust_check_command,
         diagnostics = {
           disabled = {
             "macro-error",
@@ -40,7 +55,6 @@ if vim.fn.executable('nu.exe') == 1 then
 end
 
 if vim.fn.has("wsl") == 1 then
-
   if vim.fn.executable("wl-copy") == 0 then
     print("wl-clipboard not found, clipboard integration won't work")
   else
@@ -52,14 +66,13 @@ if vim.fn.has("wsl") == 1 then
       },
       paste = {
         ["+"] = (function()
-          return vim.fn.systemlist('wl-paste --no-newline|tr -d \'\\r\'', {''}, 1) -- '1' keeps empty lines
+          return vim.fn.systemlist('wl-paste --no-newline|tr -d \'\\r\'', { '' }, 1) -- '1' keeps empty lines
         end),
         ["*"] = (function()
-          return vim.fn.systemlist('wl-paste --primary --no-newline|tr-d \'\\r\'', {''}, 1)
+          return vim.fn.systemlist('wl-paste --primary --no-newline|tr-d \'\\r\'', { '' }, 1)
         end),
       },
       cache_enabled = true
     }
   end
-
 end
