@@ -18,8 +18,8 @@ return {
       },
       formatters = {
         ["google-java-format"] = {
-          args = { "--aosp", "--skip-sorting-imports", "-" }
-        }
+          args = { "--aosp", "--skip-sorting-imports", "-" },
+        },
       },
     },
   },
