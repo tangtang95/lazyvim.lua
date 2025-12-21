@@ -2,7 +2,7 @@ return {
   -- nix language
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = { ensure_installed = { "nix" } },
+    opts = { ensure_installed = { "nix", "zig" } },
   },
   {
     "stevearc/conform.nvim",
